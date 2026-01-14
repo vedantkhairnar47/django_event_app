@@ -1,0 +1,19 @@
+<h2>My Events</h2>
+
+<a href="{% url 'create_event' %}">Create Event</a>
+
+<ul>
+{% for event in events %}
+  <li>
+    <a href="{% url 'event_detail' event.id %}">{{ event.name }}</a>
+    | <a href="{% url 'edit_event' event.id %}">Edit</a>
+    | <a href="{% url 'delete_event' event.id %}">Delete</a>
+  </li>
+{% empty %}
+  <li>No events found</li>
+{% endfor %}
+</ul>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
