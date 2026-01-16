@@ -1,12 +1,29 @@
-<!-- templates/login.html -->
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
-<p>Don’t have an account?</p>
+{% load static %}
 
-<a href="{% url 'register' %}">
-    <button type="button">Register</button>
-</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'events/style.css' %}">
+</head>
+<body>
+<div class="container">
+<div class="login-container">
+    <h2>Login</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="login-btn" type="submit">Login</button>
+    </form>
+
+    <p class="register-text">Don’t have an account?</p>
+
+    
+       <a href="{% url 'register' %}" class="register-link">Register</a>
+
+   
+</div>
+</div>
+</body>
+</html>
